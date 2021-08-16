@@ -1,0 +1,7 @@
+version: "3.9"
+services:
+  app:
+  # ビルドコンテキストを指定
+    build: ./infra/php # ここのDockerfileを自動で探してビルドする
+    volumes:
+      - ./backend:/work # ./backend ディレクトリをappサービスのコンテナ内 /work へマウント
