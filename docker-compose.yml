@@ -1,7 +1,17 @@
 version: "3.9"
 services:
+  # アプリケーションコンテナ
   app:
   # ビルドコンテキストを指定
     build: ./infra/php # ここのDockerfileを自動で探してビルドする
     volumes:
       - ./backend:/work # ./backend ディレクトリをappサービスのコンテナ内 /work へマウント
+  # webサーバーコンテナ
+  web:
+    image: nginx:1.20-alpine
+    ports:
+      - 8080:80 # 外（ホスト側）とのポートフォワード設定
+    volumes:
+      - ./backend:/work
+      - ./infra/nginx/default.conf:/etc/nginx/conf.d/default.conf
+    working_dir: /work
