@@ -48,7 +48,7 @@ git cloneが終わった状態では app コンテナ内に /work/vendor ディ�
 
 6. 権限変更
 
-フレームワーク内のファイルを書き込み権限がないので変更します。
+フレームワーク内のファイルを書き込みする権限がないので変更します。
 
 ```
 [app] $ chmod -R 777 storage bootstrap/cache
@@ -66,7 +66,7 @@ git cloneが終わった状態では app コンテナ内に /work/vendor ディ�
 
 ```
 [app] $ exit
-[mac] $ docker compose down
+[linux] $ docker compose down
 ```
 
 
