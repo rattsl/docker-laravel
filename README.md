@@ -69,6 +69,17 @@ git cloneが終わった状態では app コンテナ内に /work/vendor ディ�
 [linux] $ docker compose down
 ```
 
+## 各ブランチについて
+
+- main 
+→　アプリの本番ブランチ
+
+- develop
+→　開発中ブランチ
+
+- tutorial
+→　チュートリアル用CRUDアプリブランチ
+
 
 ## 参考記事
 
