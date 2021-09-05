@@ -20,6 +20,20 @@ services:
     build: ./infra/mysql
     volumes:
       - db-store:/var/lib/mysql
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    # PMA_USERはmysqlのDockerfileに記載したユーザー等に変更
+    environment:
+      - PMA_ARBITRARY=1
+      - PMA_HOST=db
+      - PMA_USER=phper
+      - PMA_PASSWORD=secret
+    links:
+      - db
+    depends_on:
+      - db
+    ports:
+      - 8088:80
 
 volumes:
   db-store:
